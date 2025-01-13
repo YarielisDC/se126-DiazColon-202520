@@ -14,24 +14,33 @@
 #Functions
 def difference(people, max_cap):
     '''Determines the number of people attending the meeting as well as  the room capacity and return the difference. '''
-    diff = people - max_cap
-    print()
+    diff = max_cap - people
+    print ({diff})
     return diff
-def decision(response):
-    '''The Users's respoonse to whether or not they would like to continue in the program and enter another meeting's information'''
-    while response != 'y' and response != 'n':
-        respopnse = input("Invalid input. Please enter'y' for yes or 'n' for no").lower()
-    return response
+def decision(answer):
+    '''The users's respoonse to whether or not they would like to continue in the program and enter another meeting's information'''
+    answer = input("Would you like to like to go again: ").lower()
+    if answer != 'y' and answer != 'n':
+        answer = input("Invalid input. Please enter'y' for yes or 'n' for no: ").lower()
+    return answer
 
 
 
 
 #main code below ----------------------------------------------------------------------------------
+answer = "y"
+while answer == "y":
+    meeting_name = input("What is the name of your meeting? ")
+    people = int(input("How many people are attending? "))
+    max_cap = int(input("What is the room capacity? "))
+    diff = difference(people, max_cap)
 
-meeting_name = input("What is the name of your meeting? ")
-people = int(input("How many people are attending? "))
-max_cap = int(input("What is the room capacity? "))
+    if people >= max_cap:
+        print(f"You are over the legal limit you need to remove {diff} amount of people. ")
+    
+    if people < max_cap:
+        more = max_cap - people
+        print(f"You can add {more} more people in the meeting room")
+    
+    decision(answer)
 
-difference(people, max_cap)
-
-response = input("Would you like to continue? 'y' for yes 'n' for no: ").lower()
