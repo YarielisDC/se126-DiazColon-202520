@@ -12,7 +12,7 @@
 import csv 
 
 #---connected to the file ----------------------
-print(f"{'Type':10}    {'Brand':10}   {'CPU':5}     {'RAM':5}     {'1st Disk':7}    {'NO HDD':5}      {'2nd Disk':7}    {'OS':5}  {'YR':4}   ")
+print(f"{'Type':9} {'Brand':9}   {'CPU':5}  {'RAM':5}  {'1st Disk':10}  {'NO HDD':8}  {'2nd Disk':10}  {'OS':5} {'YR':4}\n")
 with open ("week2/filehandling.csv") as csvfile: 
     file = csv.reader(csvfile)
 
@@ -32,13 +32,17 @@ with open ("week2/filehandling.csv") as csvfile:
             computer = "Laptop"
         
         if brand == "DL":
-            print(f"{'Dell':7}")
+            brand = "Dell"
         
-        elif brand == "GW":
-            print(f'{'Gateway':7}')
+        if brand == "GW":
+            brand = "Gateway"
         
-        elif hdd == "1":
-            print(f"{computer:10}   {brand:10}  {cpu:5}     {ram:5} {disk1:7}   {hdd:5}     {os:5}      {yr:4}")
+        if hdd == "1":
+            print(f"{computer:9} {brand:9}   {cpu:5}  {ram:5}  {disk1:10}  {hdd:8}  {'------':10}  {os:5} {yr:4}")
         
-        #if hdd == "2":
-
+        if hdd == "2":
+            yr = rec[8]
+            os = rec[7]
+            disk2 = rec[6]
+            hdd = rec[5]
+            print(f"{computer:9} {brand:9}   {cpu:5}  {ram:5}  {disk1:10}  {hdd:8}  {disk2:10}  {os:5} {yr:4}")
