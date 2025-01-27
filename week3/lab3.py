@@ -41,7 +41,7 @@ with open("week3/voters_202040.csv") as csvfile:
         id.append(rec[0])
         age.append(rec[1])
         register.append(rec[2])
-        vote.append(rec[3])
+        vote.append(vote[3])
 
         #NOT OLD ENOUGH TO VOTE!
         if rec[1] <= "17":
