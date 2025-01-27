@@ -41,11 +41,13 @@ with open("week3/voters_202040.csv") as csvfile:
         id.append(rec[0])
         age.append(rec[1])
         register.append(rec[2])
-        vote.append(vote[3])
+        vote.append(rec[3])
 
         #NOT OLD ENOUGH TO VOTE!
         if rec[1] <= "17":
             cant_register += 1
+        
+         
         
         #PEOPLE WHO ARE OF AGE BUT DIDN'T REGISTER!
         if rec[1] >= "18":
@@ -72,6 +74,6 @@ print(f"Number of individuals not eligible to register: {cant_register} ")
 print(f"Number of individuals who are old enough to vote but have not registered: {haven_registered}")
 print(f"Number of individuals who are eligible to vote but did not vote: {didn_vote}")
 print(f"Number of individuals who did vote: {did_vote}")
-print(f"Number of records processed: {total_rec}")
+print(f"Number of records processed: {len(id)}")
 
     
