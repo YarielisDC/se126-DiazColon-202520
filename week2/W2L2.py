@@ -38,11 +38,11 @@ with open ("week2/filehandling.csv") as csvfile:
             brand = "Gateway"
         
         if hdd == "1":
-            print(f"{computer:9} {brand:9}   {cpu:5}  {ram:5}  {disk1:10}  {hdd:8}  {'------':10}  {os:5} {yr:4}")
+            print(f'{computer:9} {brand:9}   {cpu:5}  {ram:5}  {disk1:10}  {hdd:8}  {"------":10}  {os:5} {yr:4}')
         
         if hdd == "2":
             yr = rec[8]
             os = rec[7]
             disk2 = rec[6]
             hdd = rec[5]
-            print(f"{computer:9} {brand:9}   {cpu:5}  {ram:5}  {disk1:10}  {hdd:8}  {disk2:10}  {os:5} {yr:4}")
+            print(f'{computer:9} {brand:9}   {cpu:5}  {ram:5}  {disk1:10}  {hdd:8}  {disk2:10}  {os:5} {yr:4}')
