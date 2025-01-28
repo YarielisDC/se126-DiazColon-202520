@@ -47,7 +47,7 @@ num_avg = [] # Making a list so it stores the data into the 'num_avg' list
 letter_avg = [] #Making a list storing the data of the avg grades to a letter grades. 
 
 for i in range(0,len(fName)):  
-    a = test1[i] + test2[i] + test3[i]/ 3 #does the math for averages 
+    a = (test1[i] + test2[i] + test3[i])/ 3 #does the math for averages 
     num_avg.append(a) #stores the total avg into the num_avg list
     
     l = letter(a) # a variable for the function that also holds the data for the letter(a) function 
