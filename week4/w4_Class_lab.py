@@ -26,3 +26,5 @@ with open("week4/class_grades-2.csv") as csvfile:
         test1.append(int(rec[2]))
         test2.append(int(rec[3]))
         test3.append(int(rec[4]))
+    
+    
