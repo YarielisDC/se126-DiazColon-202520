@@ -70,8 +70,9 @@ while answer == "y":
     #SEARCH MENU LIST
     print("\tSEARCH MENU OPTIONS")                   
     print("1. Search by LAST name")                  
-    print("2. Search by LETTER GRADE")               
-    print("3. EXIT")                                 
+    print("2. Search by FIRST NAME")               
+    print("3. Search by LETTER GRADE")
+    print("4. Exit ")                                 
     
     search_type = input("Enter your search type: ").lower()
 
@@ -93,18 +94,39 @@ while answer == "y":
             print("Check your cAsInG and sPeLlInG and try again!")
     
     elif search_type == "2":
-        print("\nLetter Grades")
+        found = "x"
+        print("\nFirst Name Search")
+        search_FN = input("Enter the FIRST name you would like to search: ")
         
-        search_LetG = input("Enter the letter Grade you would like to search: ")
-        for i in range(0, len(letter_avg)):
-            if search_LetG == letter_avg[i]:
+        for i in range(0, len(fName)):
+            if search_FN.lower() == fName[i].lower():
+                found = i
+            
+        if found != "x":
+            print("Your search entry was found!")
+            print(f"{fName[found]:10}  {lName[found]:10}  {test1[found]:3}  {test2[found]:3}  {test3[found]:3}  {num_avg[found]:6.1f}  {letter_avg[found]}")
+        else: 
+            print("Your entry was not found")
+    
+    elif search_type == "3":
+        found = []
+        search_lg = input("Please enter the letter grade you would like to find: ")
+        
+        for i in range (0,len(letter_avg)):
+            if search_lg == letter_avg[i]:
                 found.append(i)
+                print(f"Found a {search_lg} grade in INDEX {i}")
+        
+        if not found:
+            print("Your search entry was not found")
+        else:
+            print("Your search entry was found!")
+            for i in range(0,len(found)):
+                print(f"{fName[found[i]]:10}  {lName[found[i]]:10}  {test1[found[i]]:3}  {test2[found[i]]:3}  {test3[found[i]]:3}  {num_avg[found[i]]:6.1f}  {letter_avg[found[i]]}")
+        
 
-
-
-
-    #elif search_type == "3":
-        #print("EXIT")
-        #answer = "o"
-        #print("Goodbye!")
+    elif search_type == "4":
+        print("EXIT")
+        answer = "o"
+        print("Goodbye!")
 
