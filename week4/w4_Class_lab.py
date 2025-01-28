@@ -41,6 +41,7 @@ with open("week4/class_grades-2.csv") as csvfile:
         test2.append(int(rec[3]))
         test3.append(int(rec[4]))
 
+
 #-------------OUT OF THE FILE--------------------
 num_avg = [] # Making a list so it stores the data into the 'num_avg' list
 letter_avg = [] #Making a list storing the data of the avg grades to a letter grades. 
@@ -102,7 +103,8 @@ while answer == "y":
 
 
 
-    elif search_type == "3":
-        print("EXIT")
-        answer = "o"
-        print("Goodbye!")
+    #elif search_type == "3":
+        #print("EXIT")
+        #answer = "o"
+        #print("Goodbye!")
+
