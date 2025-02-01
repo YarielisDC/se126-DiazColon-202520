@@ -34,7 +34,7 @@ with open ("week4\dragons.csv") as csvfile:
 #---------- disconnected from file --------------------
 
 #process the lists to display data to the console
-print(f"{"DRAGONS":15} {'RIDERS':30} {'#':3} {'1COLOR':8} {'2COLOR':8}")
+print(f'{"DRAGONS":15} {"RIDERS":30} {"#":3} {"1COLOR":8} {"2COLOR":8}')
 print("----------------------------------------------------------------------")
 
 for i in range(0, len(dragons)):
@@ -66,17 +66,6 @@ search = input("Enter the dragon color are you looking for: ")
 for i in range(0, len(color1)):
     if search.lower() in color1[i] or search.lower() in color2[i]:
         found.append(i)
-
-
-
-
-
-
-
-
-
-
-
 
 
 if not found: #if the found list is empty
