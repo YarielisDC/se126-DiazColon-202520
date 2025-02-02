@@ -144,9 +144,9 @@ for i in range(0, len(firstN)):
    
 print(f"\nWesteros Services Directory Search\n\t")
 print("1. Search by FIRST NAME")
-print("2. Search by PHONE EXTENSION")
-print("3. Search By LAST NAME")
-print("4. Search by DEPARTMENT")
+print("2. Search by LAST NAME")
+print("3. Search By DEPARTMENT")
+print("4. Search by PHONE EXETENSION")
 print("5. EXIT")
 
 found = "x"
@@ -154,17 +154,31 @@ search = input("What would you like to search by? ")
 
 #Searching by first names
 if search == "1":
-    found = "x"
-    print("Searching by first name:")
+    print("\nSearching by FIRST NAME:")
     firstnS = input("What is the FIRST NAME you would like to search: ")
 
-for i in range(0,len(firstN)):
-    if firstnS in firstN[i]:
-        found = i
+    for i in range(0, len(firstN)):
+        if firstnS in firstN[i]:
+            found = i
    
-if found != "x":
-        print("Your search was found")
-        print(f"{firstN[i]:8} {lastN[i]:10} {email[i]:30} {department[i]:23} {phone[i]:11}")
+    if found != "x":
+        print(f"Your search for {firstnS} was found")
+        print(f"{firstN[found]:8} {lastN[found]:10} {email[found]:30} {department[found]:23} {phone[found]:11}")
+        
+    else:
+        print(f"Your search for {firstnS} was NOT Found")
+
+if search == "2":
+    print("\nSearch by LAST NAME")
+    firstLs = input("What is the LAST NAME you would like to search: ")
+
+    for i in range(0, len(lastN)):
+       if firstLs in lastN[i]:
+         found = i 
     
-else:
+    if found != "x":
+        print(f"Your search for {firstLs} was found!")
+        print(f"{firstN[found]:8} {lastN[found]:10} {email[found]:30} {department[found]:23} {phone[found]:11}")
+    
+    else:
         print(f"Your search for {firstnS} was NOT Found")
