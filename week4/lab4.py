@@ -22,7 +22,7 @@ import csv
 #----------------- WITHIN the file -----------------------
 
 #Known Variable
-
+answer = "y"
 #Known Lists 
 firstN = []
 lastN = []
@@ -141,44 +141,101 @@ file = open('week4/westeros.csv', "w")
 for i in range(0, len(firstN)):
    file.write(f'{firstN[i]}, {lastN[i]}, {email[i]}, {department[i]}, {phone[i]}\n')
    file.close
-   
-print(f"\nWesteros Services Directory Search\n\t")
-print("1. Search by FIRST NAME")
-print("2. Search by LAST NAME")
-print("3. Search By DEPARTMENT")
-print("4. Search by PHONE EXETENSION")
-print("5. EXIT")
 
-found = "x"
-search = input("What would you like to search by? ")
 
-#Searching by first names
-if search == "1":
-    print("\nSearching by FIRST NAME:")
-    firstnS = input("What is the FIRST NAME you would like to search: ")
+while answer == "y":
+    print(f"\nWesteros Services Directory Search\n\t")
+    print("1. Search by FIRST NAME")
+    print("2. Search by LAST NAME")
+    print("3. Search By DEPARTMENT")
+    print("4. Search by PHONE EXETENSION")
+    print("5. EXIT")
+    found = "x"
+    search = input("What would you like to search by? ")
 
-    for i in range(0, len(firstN)):
-        if firstnS in firstN[i]:
-            found = i
-   
-    if found != "x":
-        print(f"Your search for {firstnS} was found")
-        print(f"{firstN[found]:8} {lastN[found]:10} {email[found]:30} {department[found]:23} {phone[found]:11}")
+    #Searching by first names
+    if search == "1":
+        print("\nSearching by FIRST NAME:")
+        firstnS = input("What is the FIRST NAME you would like to search: ")
+
+        for i in range(0, len(firstN)):
+            if firstnS in firstN[i]:
+                found = i
+    
+        if found != "x":
+            print(f"\tYour search for {firstnS} was found\t\t")
+            print(f'{"FIRST":8} {"LAST":10} {"EMAIL":30} {"DEPARTMENT":23}  {"PHONE EXTEN.":11}')
+            print(f"{firstN[found]:8} {lastN[found]:10} {email[found]:30} {department[found]:23} {phone[found]:11}")
+            
+        else:
+            print(f"Your search for {firstnS} was NOT Found")
+
+    elif search == "2":
+        print("Search by LAST NAME")
+        found = []
+        LastNs = input("\n\tWhat is the LAST NAME you would like to search: ")
+
+        for i in range(0, len(lastN)):
+            if LastNs in lastN[i]:
+                found.append(i)
         
-    else:
-        print(f"Your search for {firstnS} was NOT Found")
+        if found != "x":
+            print(f"Your search for {LastNs} was found!")
+            print(f'\n{"FIRST":8} {"LAST":10} {"EMAIL":30} {"DEPARTMENT":23}  {"PHONE EXTEN.":11}')
+            for i in range(0, len(found)):
+                print(f"{firstN[found[i]]:8} {lastN[found[i]]:10} {email[found[i]]:30} {department[found[i]]:23} {phone[found[i]]:11}")
+        
+        else:
+            print(f"Your search for {LastNs} was NOT Found")
 
-if search == "2":
-    print("\nSearch by LAST NAME")
-    firstLs = input("What is the LAST NAME you would like to search: ")
+    elif search == "3":
+        print("Search by DEPARTMENT")
+        found = []
+        depS = input("What is the department you would like to search for? ")
+    
+        for i in range(0,len(department)):
+            if depS in department[i]:
+                    found.append(i)
 
-    for i in range(0, len(lastN)):
-       if firstLs in lastN[i]:
-         found = i 
+        if found != "x":
+            print(f"Your search for {depS} was found!")
+            print(f'\n{"FIRST":8} {"LAST":10} {"EMAIL":30} {"DEPARTMENT":23}  {"PHONE EXTEN.":11}')
+            for i in range(0,len(found)):
+                    print(f"{firstN[found[i]]:8} {lastN[found[i]]:10} {email[found[i]]:30} {department[found[i]]:23} {phone[found[i]]:11}")
+        else:
+                print(f"Your search for {depS} was not found!")
+        
+    elif search == "4":
+        found = []
+        print("Search by Phone Exetension")
+        pe_s = input("Enter the phone exetensions you're looking for: ")
+
+        for i in range(0,len(phone)):
+            if pe_s in phone[i]:
+                found.append(i)
+        
+        if found != "x":
+            print(f"Your search for {pe_s} was found!")
+            print(f'\n{"FIRST":8} {"LAST":10} {"EMAIL":30} {"DEPARTMENT":23}  {"PHONE EXTEN.":11}')
+            
+            for i in range(0,len(found)):
+                print(f"{firstN[found[i]]:8} {lastN[found[i]]:10} {email[found[i]]:30} {department[found[i]]:23} {phone[found[i]]:11}")
+            
+        else: 
+            print(f"Your search for {pe_s} was not found!")
+
+
     
-    if found != "x":
-        print(f"Your search for {firstLs} was found!")
-        print(f"{firstN[found]:8} {lastN[found]:10} {email[found]:30} {department[found]:23} {phone[found]:11}")
+    elif search == "5":
+        print("EXIT")
+        answer == "o"
+        print("Goodbye!")
     
-    else:
-        print(f"Your search for {firstnS} was NOT Found")
+    answer = input("Would you like to use the search again: ")
+    
+    
+    
+
+
+
+
