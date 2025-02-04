@@ -64,7 +64,7 @@ print(f"There are {len(fName)} students in the file. ")
 
 print("\n\nWelcme to the Student Search Program\n\n")
 
-answer = input("Would you like to begn searching? [y/n]: ").lower()
+answer = input("Would you like to began searching? [y/n]: ").lower()
 
 while answer == "y":
     #SEARCH MENU LIST
