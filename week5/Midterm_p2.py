@@ -30,6 +30,9 @@ with open ("week5/westeros.csv") as csvfile:
 
 #MAKING A NEW LIST FOR OFFICE NUMBER
 office_num = []
+
+
+
 for i in range(0, len(firstN)):
     
     if firstN[i] == "Eddard":
@@ -42,7 +45,7 @@ for i in range(0, len(firstN)):
         o = "103"
         office_num.append(o)
     elif firstN[i] == "Arya":
-        o = "103"
+        o = "103.5"
         office_num.append(o)
     elif firstN[i] == "Robb":
         o = "104"
@@ -66,19 +69,19 @@ for i in range(0, len(firstN)):
     elif firstN[i] == "Jaime":
         o = "110"
         office_num.append(o)
-    elif firstN[i] =="Cersi":
+    elif firstN[i] =="Cersei":
         o = "111"
         office_num.append(o)
-    elif firstN[i] in "Robert":
+    elif "Robert" == firstN[i]:
         o = "112"
         office_num.append(o)
-    elif firstN[i] in "Stannis":
+    elif firstN[i] == "Stannis":
         o = "113"
         office_num.append(o)
-    elif firstN[i] in "Renly":
+    elif firstN[i] == "Renly":
         o = "114"
         office_num.append(o)
-    elif firstN[i] in "Daenerys":
+    elif firstN[i] == "Daenerys":
         o = "115"
         office_num.append(o)
     elif firstN[i] == "Viserys":
@@ -117,7 +120,7 @@ while answer == "y":
         if found != "x":
             print(f"Your search for {ems} was found!")
             print(f"{"FirstName":20} {"Last Name:":20} {"Email":30} {"Department":25} {"Phone Extension":30} {"Office Number"}")
-            print(f"{firstN[i]:20} {lastN[i]:20} {email[i]:30} {departmet[i]:25} {phone_exe[i]:30} {office_num[i]:5}")
+            print(f"{firstN[found]:20} {lastN[found]:20} {email[found]:30} {departmet[found]:25} {phone_exe[found]:30} {office_num[found]:5}")
         else:
             print(f"Your search for {ems} was not found")
 
