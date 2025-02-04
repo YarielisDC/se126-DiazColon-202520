@@ -69,16 +69,6 @@ for i in range(0, len(color1)):
 
 
 
-
-
-
-
-
-
-
-
-
-
 if not found: #if the found list is empty
     print(f"Your search for {search} was NOT FOUND!")
 
