@@ -142,6 +142,6 @@ while answer == "y":
         print("EXIT")
         answer = "n"
         print("Goodbye!")
-    answer = input("Would you like to use the Search again? ")
+    answer = input("Would you like to use the search again? ")
 
 
