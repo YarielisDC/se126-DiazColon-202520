@@ -111,7 +111,7 @@ while ans == "y":
                     swap(index, meaning)
                     swap(index, culture)
         #check your sorting
-        display("X",0,len(name))
+        display("x",0,len(name))
 
         #Binary Search
         search = input("Enter the NAME you are looking for: ")
