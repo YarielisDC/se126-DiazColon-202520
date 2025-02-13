@@ -23,7 +23,8 @@ import csv
 
 #Known Variable
 answer = "y"
-#Known Lists 
+
+#Lists 
 firstN = []
 lastN = []
 age = []
@@ -35,6 +36,7 @@ hr = []
 acc = []
 sale = []
 aud = []
+
 with open ("week4/got_emails.csv") as csvfile:
     file = csv.reader(csvfile)
     
@@ -232,10 +234,3 @@ while answer == "y":
         print("Goodbye!")
     
     answer = input("Would you like to use the search again: ")
-    
-    
-    
-
-
-
-
