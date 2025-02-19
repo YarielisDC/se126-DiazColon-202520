@@ -78,23 +78,8 @@ while ans == "y":
 
     elif choice == "2": #search by NUMBERS
         print("\nSearch by NUM")
-        found = "x"
-        print("\nSearch by NUM ")
-        search = input("Enter the number you would like to search: ")
-        
-        for i in range(0, len(nums)):
-            if search == nums[i]:
-                found = i
-            
-        if found != "x":
-            print(f"Your search for {search} is complete, see below details: ")
-            print(f"{'NAME':8}  {'NUM':3}  {'COLOR'}")
-            print("-----------------------------------------------")
-            print(f"{names[i]:8}  {nums[i]:3}  {colors[i]}")
-            print("-----------------------------------------------")
-        else:
-            print(f"Your search for {search} was complete, and no information was found. ")
-
+    
+    
     
     elif choice == "3": #search by COLOR
         print("\nSearch by COLOR")
