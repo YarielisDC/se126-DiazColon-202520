@@ -29,21 +29,21 @@ def display(x, foundList, records):
 
             records   the length of a list we are going to process through (# of loops/prints)
     '''
-    print(f"{'LIB NUM':7}  {'TITLE':35}  {'AUTHOR':18}  {'GENRE':17} {'PAGES':5} {'STATUS':11}")
+    print(f"{'LIB NUM':7}  {'TITLE':35}  {'AUTHOR':18}  {'GENRE':17} {'PAGES':8} {'STATUS':11}")
     print("-----------------------------------------------------------------------------------------------------------------")
     if x != "x":
         #printing one record
-        print(f"{LibNums[x]:7}  {titles[x]:35}  {authors[x]:18}  {genres[x]:17} {pages[x]:5} {status[x]:11}")
+        print(f"{LibNums[x]:7}  {titles[x]:35}  {authors[x]:18}  {genres[x]:17} {pages[x]:8} {status[x]:11}")
 
     elif foundList:
         #printing multiples, based on length stored in 'foundList'
         for i in range(0, records):
-            print(f"{LibNums[foundList[i]]:8}  {titles[foundList[i]]:10}  {authors[foundList[i]]:25}  {genres[foundList[i]]} {pages[foundList[i]]:5} {status[foundList[i]]:11}") 
+            print(f"{LibNums[foundList[i]]:7}  {titles[foundList[i]]:35}  {authors[foundList[i]]:17}  {genres[foundList[i]]:17} {pages[foundList[i]]:8} {status[foundList[i]]:11}") 
     
     else:
         #printing full data, based on length stored in 'records'
         for i in range(0, records):
-            print(f"{LibNums[i]:7}  {titles[i]:35}  {authors[i]:18}  {genres[i]:17} {pages[i]:5} {status[i]:11}")
+            print(f"{LibNums[i]:7}  {titles[i]:35}  {authors[i]:18}  {genres[i]:17} {pages[i]:8} {status[i]:11}")
 def menu():
     print("\nWelcome to the Libray Search System")
     print("Please look through 1-8 options to search for\n")
@@ -123,12 +123,10 @@ while ans == "y":
             display(mid, 0, len(titles))
     
     elif search == "2":
-        found = "x"
-        search = input("Please Enter the title you are looking for? ").lower()
         for i in range(len(titles)):
             for j in range(len(titles) - 1):
                 #see if "heavier value is in front of "smaller" value
-                if titles[j] > titles [j + 1 ]:
+                if authors[j] > authors [j + 1 ]:
                     #swap places! not just THIS value, but all ASSOCIATED values!
                     swap(j,titles)
                     swap(j, authors)
@@ -136,14 +134,31 @@ while ans == "y":
                     swap(j, LibNums)
                     swap(j, pages)
                     swap(j, status)
+        
+        search = input("Please Enter the title you are looking for? ").lower()  
+        min = 0                         #always starting value --> FIRST INDEX / lowest value in ascending ordered list 
+        max = len(authors) - 1           #LAST INDEX / highest value in ascending ordered list
+        mid = int((min + max) / 2)      #MIDDLE INDEX / middle value in ascending ordered list
+
+
+        while min < max and search.lower() != titles[mid].lower():
+            if search.lower() < titles[mid].lower():
+                max = mid - 1
+            else:
+                #search.lower() > names[mid].lower()
+                min = mid + 1
+            mid = int((min + max)/ 2)
+
+        found = []
+
         for i in range(0,len(titles)):
             if search.lower() in titles[i].lower():
-                found = i
-        if found != "x": #search was found!
-            print(f"Your search for {search} was FOUND!:")
-            display(found, 0, 1)
+                found.append(i)
+
+        if not found:
+            print(f"Your search for {search} was not found!")
         else:
-            print(f"Your search for {search} was NOT FOUND!")
+            display("x",found,len(found))
     
     elif search == "3":
         for i in range(len(authors)):
@@ -157,9 +172,11 @@ while ans == "y":
                     swap(j, LibNums)
                     swap(j, pages)
                     swap(j, status)
+        search = input("Please Enter the Author you are looking for? ").lower()  
         min = 0                         #always starting value --> FIRST INDEX / lowest value in ascending ordered list 
         max = len(authors) - 1           #LAST INDEX / highest value in ascending ordered list
         mid = int((min + max) / 2)      #MIDDLE INDEX / middle value in ascending ordered list
+
 
         while min < max and search.lower() != authors[mid].lower():
             if search.lower() < authors[mid].lower():
@@ -169,21 +186,89 @@ while ans == "y":
                 min = mid + 1
             mid = int((min + max)/ 2)
 
-
         found = []
-        search = input("Please Enter the Author you are looking for? ").lower()
 
         for i in range(0,len(authors)):
             if search.lower() in authors[i].lower():
                 found.append(i)
-        if search.lower() in authors[mid].lower():
+
+        if not found:
+            print(f"Your search for {search} was not found!")
+        else:
+            display("x",found,len(found))
+
+    elif search == "4":
+        print(f"\nYou have chosen to search by Genre")
+        search = input("Which genre are you lookin for: ").lower()
+        found = []
+
+        for i in range(0,len(genres)):
+            if search.lower() in genres[i].lower():
+                found.append(i)
+
+        if not found:
+            print(f"Sorry, we hae no genre related to the meaning you entered: '{genres}'")
+        else:
+            display("x",found,len(found))
+
+    elif search == "5":
+        print("You have chosen to search by Library Numbers")
+        search = input("Please Enter the Library number: ")
+        found = "x"
+       
+        for i in range(0,len(LibNums)):
+            if search.lower() in LibNums[i].lower():
+                found = i
+        #step 3: filter and display results
+        if found != "x": #search was found!
+            print(f"Your search for {search} was found ")
+            print(f"{'LIB NUM':7}  {'TITLE':35}  {'AUTHOR':18}  {'GENRE':17} {'PAGES':8} {'STATUS':11}")
+            print("-----------------------------------------------------------------------------------------------------------------")
+            print(f"{LibNums[found]:7}  {titles[found]:35}  {authors[found]:18}  {genres[found]:17} {pages[found]:8} {status[found]:11}")
+        
+        else:
+            print(f"Your search for {search} was not  found ")
+            
+    elif search == "6":
+        print(f"\nYou have chosen to search through all AVALIABLE BOOKS")
+
+        found = []
+
+        # Step 1: Find books with status "available"
+        for i in range(len(status)):
+            if status[i].lower() == "available":
+                found.append(i)
+
+        # Step 2: Display results
+        if not found:
+            print("Your search didn't come up.")
+        else:
+            print("\nAvailable Books:")
             print(f"{'LIB NUM':7}  {'TITLE':35}  {'AUTHOR':18}  {'GENRE':17} {'PAGES':5} {'STATUS':11}")
             print("-----------------------------------------------------------------------------------------------------------------")
-            print(f"{LibNums[mid]:7}  {titles[mid]:35}  {authors[mid]:18}  {genres[mid]:17} {pages[mid]:5} {status[mid]:11}")
+            for i in found:
+                print(f"{LibNums[i]:7}  {titles[i]:35}  {authors[i]:18}  {genres[i]:17} {pages[i]:8} {status[i]:11}")
 
+    elif search == "7":
+        print(f"\nYou have chosen to search through all UNAVALIABLE BOOKS")
+
+        found = []
+
+        # Step 1: Find books with status "available"
+        for i in range(len(status)):
+            if status[i].lower() == "on loan":
+                found.append(i)
+
+        # Step 2: Display results
+        if not found:
+            print("Your search didn't come up.")
         else:
-            print(f"Your search for {search} was not found!")
+            print("\nUnavailable Books:")
+            print(f"{'LIB NUM':7}  {'TITLE':35}  {'AUTHOR':18}  {'GENRE':17} {'PAGES':5} {'STATUS':11}")
+            print("-----------------------------------------------------------------------------------------------------------------")
+            for i in found:
+                print(f"{LibNums[i]:7}  {titles[i]:35}  {authors[i]:18}  {genres[i]:17} {pages[i]:8} {status[i]:11}")
 
-
-
-    ans = input("Would you like to use the Libray Search again? ")
+    elif search == "8":
+        ans = "x"
+        print("Thank you for using my Libray search program!\nGoodbye!")
