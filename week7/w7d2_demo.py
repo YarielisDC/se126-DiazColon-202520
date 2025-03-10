@@ -140,7 +140,8 @@ with open("week7/simple-2.csv") as csvfile:
 '''
 print("\n\nDATA FILE (2D LISTS[][]):")
 for i in range(0,len(dataFile)):
-    #accessing each list within the 2D list
+    #accessing each list within th
+    # e 2D list
     print(f"INDEX {i} of 'DataFile': {dataFile} ")
     for j in range(0,len(dataFile[i])):
         #accesssing each value within the list currently looked at from outter loop

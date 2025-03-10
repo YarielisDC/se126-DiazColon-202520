@@ -43,5 +43,5 @@ for i in range(0,len(dataFile)):
         #accesssing each value within the list currently looked at from outter loop
         print(f"INDEX {i} and value DataFile[{j}]: {dataFile[i][j]}")
 
-print(dataFile)
+
 
