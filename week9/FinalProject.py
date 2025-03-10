@@ -43,7 +43,7 @@ with open("week9/FinalProject.csv") as csvfile:
 answer = "y"
 
 while answer == "y":
-    print("Welcome to Red Box!\n\n")
+    print("\nWelcome to Red Box!\n\n")
     menu()
     search = input("Enter what you would like to search: ").lower()
 
@@ -61,15 +61,15 @@ while answer == "y":
                     swap(j, years)
  
 
-        if search.lower() == companys[mid].lower():
             
-            print(f"Your search for {search} was found! ")
-            print(f"{'COMPANY':20} {'TITLE':26} {'YEAR':7}")
+        print(f"Your search for {search} was found! ")
+        print(f"{'COMPANY':20} {'TITLE':26} {'YEAR':7}")
+        print("---" * 50)
             
-            for i in range(len(companys)):
-                print(f"{companys[mid]:20} {titles[mid]:35} {years[mid]}")
-            
-        else: print(f"Your search for {search} was not found")
+        for i in range(len(companys)):
+            print(f"{companys[i]:20} {titles[i]:35} {years[i]:7}")
+        print("---" * 50)
+        
         
      
     if search == "2":
@@ -113,6 +113,7 @@ while answer == "y":
     
             for i in range(0,len(found)):
                 print(f"{companys[found[i]]:20} {titles[found[i]]:35} {years[found[i]]}")
+            print("---" * 50)
    
     if search == "3":
         print("You have selected option 3:\nSearch by title")
@@ -151,13 +152,13 @@ while answer == "y":
             print( "---" * 50)
     
             for i in range(0,len(found)):
-                print(f"{companys[found[i]]:20} {titles[found[i]]:35} {years[found[i]]}")
-        
+                print(f"{companys[found[i]]:20} {titles[found[i]]:35} {years[found[i]]:7}")
+            print("---" * 50)
     if search == "4":
         print("You have selected option 4:\nSearch by Year")
-        min = 0                         #always starting value --> FIRST INDEX / lowest value in ascending ordered list 
-        max = len(years) - 1         #LAST INDEX / highest value in ascending ordered list
-        mid = int((min + max) / 2)      #MIDDLE INDEX / middle value in ascending ordered list
+        min = 0                         
+        max = len(years) - 1         
+        mid = int((min + max) / 2)      
 
         search = input("Enter the year you are looking for: ")
         while min < max and search.lower() != years[mid].lower():

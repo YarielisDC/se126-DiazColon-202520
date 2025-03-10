@@ -67,4 +67,5 @@ while ans== "y":
 
     search = input("Please select a number [1-4] ")
 
-    if search 
+    if search  == "1":
+        print("You have chosen to select ")
