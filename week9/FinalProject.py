@@ -23,7 +23,7 @@ def display(x, foundList, records):
     print("----------------------------------------------------------------------------------------------------------------")
     if x != "x":
         #printing one record
-        print(f"{companys[x]:16}  {titles[x]:30}  {authors[x]:6}")
+        print(f"{companys[x]:16}  {titles[x]:30}  {years[x]:6}")
 
     elif foundList:
         #printing multiples, based on length stored in 'foundList'
