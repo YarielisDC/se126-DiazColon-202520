@@ -60,9 +60,6 @@ while answer == "y":
                     swap(j, titles)
                     swap(j, years)
  
-
-            
-        print(f"Your search for {search} was found! ")
         print(f"{'COMPANY':20} {'TITLE':26} {'YEAR':7}")
         print("---" * 50)
             
